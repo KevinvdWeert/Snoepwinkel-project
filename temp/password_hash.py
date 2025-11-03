@@ -9,3 +9,5 @@ if __name__ == "__main__":
     password = input("Enter password to hash: ")
     print("Hashed password:")
     print(hash_password(password))
+
+# '$2y$10$e0NR0n6Qw8QyQqQw8QyQqOQw8QyQqQw8QyQqQw8QyQqQw8QyQqQy'

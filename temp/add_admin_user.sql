@@ -1,5 +1,5 @@
 INSERT INTO users (username, password)
 VALUES (
     'admin',
-    '$2y$10$e0NR0n6Qw8QyQqQw8QyQqOQw8QyQqQw8QyQqQw8QyQqQw8QyQqQy'
+    '$2b$12$vZdXQdJoQscApSm5Rtn0oOUjRr.3MJHdFUmgcmAOPOcKRbVUEdkpa'
 );

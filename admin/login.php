@@ -22,8 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $stmt = $pdo->prepare("SELECT * FROM users WHERE username = ?");
         $stmt->execute([$username]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-        // Use hash_equals for timing attack safety (optional, password_verify is safe)
+        
+        // Check if user exists and verify password
         if ($user && password_verify($password, $user['password'])) {
             session_regenerate_id(true);
             $_SESSION['admin'] = true;
@@ -43,20 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin Login</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<?php
-if (session_status() === PHP_SESSION_NONE) {
-    session_start();
-}
-?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin - Sweetshop Candy</title>
+    <title>Admin Login - Sweetshop Candy</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/style.css">
 </head>
@@ -75,7 +62,7 @@ if (session_status() === PHP_SESSION_NONE) {
         <div class="collapse navbar-collapse" id="adminNavbar">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
-                    <a class="nav-link<?php if(basename($_SERVER['PHP_SELF'])=='products.php') echo ' active'; ?>" href="products.php">Exit</a>
+                    <a class="nav-link" href="../index.php">Terug naar Website</a>
                 </li>
             </ul>
         </div>
